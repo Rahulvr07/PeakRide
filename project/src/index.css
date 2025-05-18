@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 221 70% 50%;
+    --color-primary-light: 221 70% 60%;
+    --color-primary-dark: 221 70% 40%;
+    
+    --color-secondary: 262 80% 50%;
+    --color-secondary-light: 262 80% 60%;
+    --color-secondary-dark: 262 80% 40%;
+    
+    --color-accent: 174 70% 40%;
+    --color-accent-light: 174 70% 50%;
+    --color-accent-dark: 174 70% 30%;
+    
+    --color-text: 220 20% 20%;
+    --color-background: 0 0% 100%;
+    --color-card: 0 0% 98%;
+    --color-border: 220 13% 91%;
+    
+    --color-success: 142 70% 45%;
+    --color-warning: 38 92% 50%;
+    --color-error: 0 91% 63%;
+  }
+
+  .dark {
+    --color-text: 220 13% 91%;
+    --color-background: 224 71% 4%;
+    --color-card: 224 71% 8%;
+    --color-border: 240 3% 30%;
+  }
+
+  body {
+    @apply bg-background text-text font-sans;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  .container {
+    @apply mx-auto px-4 sm:px-6 max-w-7xl;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .custom-cursor {
+    @apply fixed rounded-full pointer-events-none z-50 transition-transform duration-150 mix-blend-difference;
+    transform: translate(-50%, -50%);
+  }
+
+  .reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  .reveal.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-2 rounded-md font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .card {
+    @apply bg-card rounded-xl shadow-md border border-border p-6 transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply relative px-4 py-2 font-medium text-text transition-colors duration-300 hover:text-primary;
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-gray-200 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-primary transition-all duration-1000;
+  }
+}
